@@ -4,7 +4,7 @@
 // Slideshow
 /////////////////////////////////////////////////////////////////
 
-document.getElementById("btn-blue-text").addEventListener("click", slideFunction);
+//document.getElementById("btn-blue-text").addEventListener("click", slideFunction);
 document.getElementById("blog-header").addEventListener("click", slideFunction);
 
 function slideFunction () {
@@ -16,8 +16,8 @@ function slideFunction () {
   //Slide js
   let i = 0;
   let currentSlide = slides[i];
-  currentSlide.classList.add('transition-opacity');
-
+  $(currentSlide).addClass('transition-opacity');
+  
   function nextSlide () {
     //iterate + 1
     i++;

@@ -1,16 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 /*SCSS Vars*/
-.tarifs-content-photos {
-  opacity: 1;
-  overflow: hidden;
-  width: 20rem;
-  margin: 1rem 0 0 3rem;
-}
 
-.tarifs-content-photos > img {
-  background-color: transparent;
-  max-width: 100%;
-  height: auto;
+.flex-column {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .flex-row {
@@ -18,6 +13,10 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+}
+
+.align-left {
+  align-items: left !important;
 }
 
 /*Box reset Code*/
@@ -133,13 +132,15 @@ body {
 
 ol,
 ul {
-  list-style: disc;
+  list-style: none
 }
 
 li {
-  margin-left: 3rem;
+  margin-left: 0rem;
 }
-
+hr {
+	opacity: 0;
+}
 blockquote,
 q {
   quotes: none;
@@ -183,9 +184,9 @@ h1 {
 
 html, body {
   font: 10px "Josefin Sans", Arial;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
+  text-shadow: 0.4px 0.4px 9px rgba(0, 0, 0, 0.35);
   min-width: 100%;
-  min-height: 1200px;
+  min-height: 800px;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -306,7 +307,7 @@ header {
 }
 
 .navigation a:hover {
-  color: white;
+  color: white !important;
 }
 
 .navigation > * {
@@ -519,6 +520,11 @@ START OF CONTENT PAGES */
 }
 
 /*New Slideshow CSS*/
+
+#blog-custom-container {
+	height: 100%;
+}
+
 #slideshow, #btn-blue-container {
   height: 100%;
   width: 100%;
@@ -692,7 +698,7 @@ code {
 }
 
 .mp-header {
-  font: bold 5.2rem/0.8 "Josefin Sans", Arial;
+  font: 900 5.2rem/0.8 "Josefin Sans", Arial;
   color: black;
   padding: 15px 0;
 }
@@ -703,6 +709,10 @@ code {
   flex: 2;
   font: bold 170% "Josefin Sans", Arial;
   text-shadow: 0px 0px 5.5px darkslateblue;
+}
+
+#a-propos-mp-text-wrapper {
+	width: 72% !important;
 }
 
 .mp-text-wrapper {
@@ -737,11 +747,18 @@ code {
 }
 
 #ryu {
-  position: absolute;
-  top: 4em;
-  width: 36em;
-  opacity: 1;
-  display: none;
+    opacity: 0.47;
+    position: absolute;
+    width: 0;
+    right: -24rem;
+    bottom: -28rem;
+	z-index: -1;
+	
+	transition: all 0.4s ease-in;
+}
+
+.activeRyu {
+	width: 65rem !important;
 }
 
 /* END A PROPOS CODE
@@ -769,7 +786,28 @@ code {
 
 #tarif-mp-text-wrapper {
   display: flex;
+  width: 76%;
+  justify-content: flex-start;
 }
+
+.tarifs-mp-text {
+	display: flex !important;
+	flex: none !important;
+}
+
+.tarifs-content-photos {
+  opacity: 1;
+  overflow: hidden;
+  width: 20rem;
+  margin: 0 25px 0 15px;
+}
+
+.tarifs-content-photos > img {
+  background-color: transparent;
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* END COURS CODE
  ===================
@@ -799,7 +837,7 @@ code {
   background-color: black;
   color: white;
   margin-top: auto;
-  max-height: 200px;
+  max-height: 0px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -862,6 +900,16 @@ code {
 @media all and (max-width: 800px) {
   .navigation {
     justify-content: space-around;
+  }
+  #ryu {
+	opacity: 0.07;
+    position: fixed;
+    
+    right: -6rem;
+    bottom: -28rem;
+  }
+  #a-propos-mp-text-wrapper {
+	width: 100% !important;
   }
 }
 
@@ -980,12 +1028,19 @@ code {
     height: auto !important;
     width: 100% !important;
   }
-
+  #ryu {
+	opacity: 0.04;
+    position: fixed;
+    top: 0; left: 4.6rem;
+	width: 50rem !important;
+  }
   .content-page-h1 {
     font-size: 2.6rem !important;
     opacity: 1 !important;
   }
-
+  #tarif-mp-text-wrapper {
+	  width: 100% !important;
+  }
   .mp-text-wrapper {
     position: relative;
     flex-direction: column !important;
@@ -1000,27 +1055,31 @@ code {
   }
 
   .mp-titles, #coaching-titles {
-    font-size: 2.4rem;
+    font-size: 2.4rem !important;
   }
-
+  hr {
+    opacity: 1 !important;
+  }
   .title-hashtag {
     font-size: 2.7rem;
   }
 
   .mp-text {
-    height: auto;
-    opacity: 1 !important;
-    padding: 2% 0;
-    width: 100%;
+	display: flex;
+	align-items: center;
+	height: auto;
+	opacity: 1 !important;
+	padding: 2% 0;
+	width: 100%;
   }
 
   .mp-paragraph > li {
     font-size: 1.7rem;
-    margin-left: 2rem !important;
+    margin-left: 1.3rem !important;
   }
 
   .tarifs-content-photos {
-    margin: auto;
-    width: 8rem;
+	margin: 0 !important;
+	width: 8rem;
   }
 }

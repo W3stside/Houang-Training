@@ -47,31 +47,35 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       .animate({height: winHeight} , 600)
       .animate({left: '0'} , 400)
       .animate({width: '100%'} , 600,
-               //callback for page text       
-               function pageContentReveal () {
-      $('html, body').animate({
-        scrollTop: $(pageName).offset().top + 50
-      }, 1400);
+		  //callback for page text       
+		  function pageContentReveal () {
+		  $('html, body').animate({
+			scrollTop: $(pageName).offset().top + 50
+		  }, 400);
       //Animate in Page H1
       $(pageName).find(".content-page-h1")
         .animate({
         opacity: '1',
         fontSize: calculatedHeaderFontSize(winHeight,25)
-      }, 600, 
-                 //Animate in Header       
-                 function animMpHeader () {
-        $(pageName).find(".mp-header")
-          .animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,19)}, 300, 
-                   //Animate in Text       
-                   function animMpText () {
-
-          $(pageName).find('.mp-titles')
-            .animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,26)}, 600);
-          $(pageName).find(".mp-text, .mp-paragraph")
-            .animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,33)}, 600)
-            .find(".title-hashtag").animate({fontSize: calculatedHeaderFontSize(winHeight,25)}, 400);
-        });//end .aninmate fn
-      });//end .animate fn
+		}, 600, 
+		//Animate in Header       
+		function animMpHeader () {
+			$(pageName).find(".mp-header")
+			.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,19)}, 300, 
+		    //Animate in Text       
+		    function animMpText () {
+				$(pageName).find('.mp-titles')
+					.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,28)}, 600);
+				$(pageName).find(".mp-text, .mp-paragraph, hr")
+					.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,33)}, 600)
+					.find(".title-hashtag").animate({fontSize: calculatedHeaderFontSize(winHeight,25)}, 400,
+						function moveRyuIn () {
+							console.log(pageName);
+							if (pageName !== '.a-propos-div') return;
+							$(pageName).find("#ryu").addClass("activeRyu");
+						}); //end all chain
+			});//end .aninmate fn
+		});//end .animate fn
     });//End .animate fn 
 
    };//End expander fn
@@ -103,17 +107,10 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       var allStop = $(".a-propos, .blog, .logo, .tarifs, .a-propos-div, .blog-div, .tarifs-div, #a-propos-h1, #blog-h1, #tarifs-h1, .mp-header, .mp-text, .mp-img");
       allStop.stop(true);	
 
-      //Returns color of Header Div LINKS <a> back to normal	
-      var removeHeaderColors = $(".tarifs a, .blog a, .a-propos a");	
-      removeHeaderColors.animate({color: '#0B1C5C'}, 1000);
-
-      //Returns color of other Header Divs back to normal
-      //var removeHeaderBgColors = $(".tarifs, .blog, .a-propos");
-      //removeHeaderBgColors.animate({height: '5px', backgroundColor: 'black'}, 1000);	
-
-      var titleHide = $("#tarifs-h1, #blog-h1, #a-propos-h1, .mp-header, .mp-text, .mp-img");	
+      var titleHide = $("#tarifs-h1, #blog-h1, #a-propos-h1, .mp-header, .mp-text");	
       titleHide.animate({opacity: '0'}, 300);
       titleHide.animate({left: "-100em"}, 100);
+	  $(".mp-img").removeClass("activeRyu");
 
       var classesHide = $(".tarifs-div");								//JS for hiding transition for the Classes or COURS page
       classesHide.animate ({width: '25px', left: '82%'/*left: '1150px'*/},700);
