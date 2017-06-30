@@ -204,6 +204,22 @@ html, body {
 .inline-block {
   display: inline-block;
 }
+#loading-div {
+	background-color: 	white;
+	display: 			flex;
+	flex-direction: 	column;
+	justify-content:	center;
+	align-items:		center;
+	opacity: 			1;
+	position: 			fixed;
+	height: 			100%;
+	width:				100%;	
+	z-index: 			1111;
+}
+#loading-gif {
+	margin:		auto;
+	width: 		25%;	
+}
 
 .header,
 .footer {
@@ -369,17 +385,15 @@ header {
 }
 
 .btn {
-  display: inline-block;
-  width: 30rem;
-  line-height: 50px;
-  border: 1px solid transparent;
-  margin: 110px 15px 0 0;
-  padding: 5px 0px 5px 25px;
-  color: white;
-  font-size: 2.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
+	cursor: pointer;
+	color: white; font-size: 2.2rem; font-weight: bold;
+	display: inline-block;
+	line-height: 50px;
+	margin: 110px 15px 0 0; padding: 5px 0px 5px 25px;
+	
+	width: 30rem;
+	
+	transition: all 0.3s;
 }
 
 .btn-blue {
@@ -410,12 +424,13 @@ header {
 }
 
 .btn:hover span {
-  padding-right: 40px;
+	color: black;
+	padding-right: 40px;
 }
 
 .btn:hover span:after {
-  opacity: 1;
-  right: -16px;
+	opacity: 1;
+	right: -16px;
 }
 
 /* END MAIN BLOCK(S) CODE
