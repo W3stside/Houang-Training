@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title> Test </title>
 		
 		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
@@ -18,6 +18,29 @@
 <!--loading gif -->
 		<div id="loading-div"> 
 			<img id="loading-gif" src="./assets/gifs/RyuGif.gif" />
+			
+			<!--CONTACT-->
+			<!--============-->
+			<div class="floating-div">
+			  <span id="close_floating_div">X</span>
+			  <form action="mailto:david.sato64@gmail.com" method="post" enctype="text/plain">
+				<h3>Nous Contacter:</h3>
+				<br/>
+				<h3>Nom:</h3>
+				<p><input class="width__auto" type="text"></input></p>
+				<br/>
+				<h3>Email:</h3>
+				</p><input class="width__auto" type="text" name="Select One"></input></p>
+				<br/>
+				<h3>Votre Message:</h3>
+				<!-- Message Content Section -->
+				<p><textarea id="message__box" class="width__auto" type="text" name="Message:"></textarea></p>
+				<!-- Submit/Reset Buttons -->
+				<p><input class="input__buttons" name="Envoyer" type="submit" value="Envoyer"></input>
+				<input class="input__buttons" type="reset" value="Recommencer"></input></p>
+			  </form>
+			</div>
+			
 		</div>
 		
 		<header>
@@ -29,7 +52,7 @@
 			<div class="div5 contact"><a href="#">CONTACT</a></div>
 			<div class="div5 a-propos"><a href="#">A PROPOS</a></div>
 			<div class="div5 tarifs"><a href="#">TARIFS</a></div>
-			<div id="blog-header" class="div5 blog"><a href="#">BLOG</a></div>
+			<div id="blog-header" class="div5 blog"><a href="#">PHOTOS</a></div>
 		  </ul>
 		</header>    
 <!--Main Sections-->
@@ -52,8 +75,8 @@
 		  <!-- ==================================================================================================-->
 		  <!-- A PROPOS HTML -->
 
-			<div class="moving-pages">
-
+			<div class="moving-pages"> 
+			
 			<!--1er COURS OFFERT-->
 			<!--================-->
 			  <div class="btn-blue-div inline-block" id="btn-blue">
@@ -157,7 +180,7 @@
 						</ul>
 					  </div>
 					  
-					  <hr>
+					  <hr class="no-opacity">
 					  
 					  <div class="mp-text flex-column align-left" id="coaching-t-p">		
 						<div class="mp-titles" id="coaching-titles"><span class="title-hashtag">#</span>coaching</div>
@@ -173,7 +196,7 @@
 						</ul>
 					  </div>
 					  
-					  <hr>
+					  <hr class="no-opacity">
 					  
 					  <div class="mp-text flex-column align-left" id="autres-t-p">	
 						<div class="mp-titles" id="autres-titles"><span class="title-hashtag">#</span>autres</div>
@@ -205,7 +228,7 @@
 						<img src="http://projiujitsu.co.uk/wp-content/themes/projiujitsu/img/icon.png"/>
 					  </div>
 					  <div class="flex-column">
-						  <div class="mp-titles" id="jjb-titles"><span class="title-hashtag">#</span>jiu jitsu brésilien</div>
+						  <div class="mp-titles tarif-mp-titles" id="jjb-titles"><span class="title-hashtag">#</span>jiu jitsu brésilien</div>
 						  <ul class="mp-paragraph" id="jjb-paragraph">
 							<li>Partie d'un groupe - 35/l'heure</li>
 							<li>Cour privee - 50/l'heure</li>
@@ -220,7 +243,7 @@
 						<img src="http://freevector.co/wp-content/uploads/2013/12/56097-whistle-stroke.png"/>
 					  </div>
 					  <div class="flex-column">
-						  <div class="mp-titles" id="coaching-titles"><span class="title-hashtag">#</span>personal coaching</div>
+						  <div class="mp-titles tarif-mp-titles" id="coaching-titles"><span class="title-hashtag">#</span>personal coaching</div>
 						  <ul class="mp-paragraph" id="coaching-paragraph">
 							<li>Partie d'un groupe - 25/l'heure</li>
 							<li>Cour privee - 40/l'heure</li>
@@ -235,7 +258,7 @@
 						<img src="https://image.flaticon.com/icons/png/512/31/31249.png"/>
 					  </div>
 					  <div class="flex-column">
-						  <div class="mp-titles" id="autres-titles"><span class="title-hashtag">#</span>autres</div>
+						  <div class="mp-titles tarif-mp-titles" id="autres-titles"><span class="title-hashtag">#</span>autres</div>
 						  <ul class="mp-paragraph" id="autres-paragraph">
 							<li>Nutrition planning</li>
 							<li>Custom programs</li>
@@ -257,20 +280,72 @@
 				  <div id="slideshow">
 					<div class="slideshow-container">
 					  <div class="slides blog-header-slides" id="slide-1">
-						<img src="./assets/img/matt_lighting.jpg"/>
-						<span class="slide-title">
-						  Douleures et sensations de laxité aux niveau des epaules pendant develope couché
-						</span>
+						<h1 class="slides-h1">Photos du Jiu Jitsu</h1>
+						<div class="photo-grid">
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/matt_lighting.jpg" class="grid-photo">
+								<p class="img-p">
+								  Glamour shot
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/mattLine.jpg" class="grid-photo">
+								<p class="img-p">
+								  Hanging out in line
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/bouncing.jpg" class="grid-photo">
+								<p class="img-p">
+								  Warming up
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/takedown.jpg" class="grid-photo">
+								<p class="img-p">
+								  Takedown 1
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/holding_award.jpg" class="grid-photo">
+								<p class="img-p">
+								  Winning #1
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/holding_award2.jpg" class="grid-photo">
+								<p class="img-p">
+								  Winning #2
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/takedown2.jpg" class="grid-photo">
+								<p class="img-p">
+								  Takedown 2
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/in_training.jpg" class="grid-photo">
+								<p class="img-p">
+								  Training at the dojo
+								</p>
+							</div>
+							<div class="grid-image-container">
+								<img src="./assets/img/bjj/fight_poster.jpg" class="grid-photo">
+								<p class="img-p">
+								  Bordeaux fight poster
+								</p>
+							</div>
+							
+						</div>	
+						<!--<span class="slide-title">Douleures et sensations de laxité aux niveau des epaules pendant develope couché</span>-->
 					  </div> 
 
 					  <div class="slides blog-header-slides" id="slide-2">
 						<img src="./assets/img/mattLine.jpg"/>
 						<div class="text">
-						  <h1 class="slide-content-title">#Avril 2017: Douleurs et Sensations</h1>
-						  <code>
-							Le développé couché est l'exercice de musculation le plus populaire parmis les débutant. Pourquoi? Parce que ce sont les muscles les plus volumineux et les plus visible de la face antérieure du corps. Les muscles du dos sont les moins visible et les débutants ont tendance a moins sans préoccupé. De plus, tout le monde pose la même question. “Combien tu pousses au développé??”  Comme la majorités des jeunes qui commence juste la muscu, je suis mois aussi tombé dans ce piège et les concequences posturales peuvent être asser compliqué a resoudre si on ne connait pas l anatomie de l epaule et les exercisses neessaire pour retrouver un equilibre musculaire.<br/><br/>
-							Effet sur la coiffe des rotateurs: L articulation de l epaule a une tres faible congruence. C est a dire que l humerus (l os du bras qui rentre en coacte avec l epaule) n est pas emboité a l articulation glenoidale (une face plate de l omolate qui sert d insertin pour le bras). L articulation de la anche a une tres forte congruence et c est pour cette raison qu il est beaucoup plus difficile de ce luxer la anche que l epaule mais c est justement cette laxité de l epaule qui lui permet  d avoir une mobiité fort superieur a la anche. La coiffe des rotateurs consiste de 4 mscle qui entour et stabilise l epaule. ces muscles sont l infra epineux, le supra epineux, le petit rond et le sous claviculaire.
-						  </code>
+						  <!--<h1 class="slide-content-title">#Avril 2017: Douleurs et Sensations</h1>-->
+						  <!--<code>Le développé couché est l'exercice de musculation le plus populaire parmis les débutant. Pourquoi? Parce que ce sont les muscles les plus volumineux et les plus visible de la face antérieure du corps. Les muscles du dos sont les moins visible et les débutants ont tendance a moins sans préoccupé. De plus, tout le monde pose la même question. “Combien tu pousses au développé??”  Comme la majorités des jeunes qui commence juste la muscu, je suis mois aussi tombé dans ce piège et les concequences posturales peuvent être asser compliqué a resoudre si on ne connait pas l anatomie de l epaule et les exercisses neessaire pour retrouver un equilibre musculaire.<br/><br/>							Effet sur la coiffe des rotateurs: L articulation de l epaule a une tres faible congruence. C est a dire que l humerus (l os du bras qui rentre en coacte avec l epaule) n est pas emboité a l articulation glenoidale (une face plate de l omolate qui sert d insertin pour le bras). L articulation de la anche a une tres forte congruence et c est pour cette raison qu il est beaucoup plus difficile de ce luxer la anche que l epaule mais c est justement cette laxité de l epaule qui lui permet  d avoir une mobiité fort superieur a la anche. La coiffe des rotateurs consiste de 4 mscle qui entour et stabilise l epaule. ces muscles sont l infra epineux, le supra epineux, le petit rond et le sous claviculaire.</code>-->
 						</div>
 					  </div>  
 
@@ -306,42 +381,17 @@
 		  </hero>
 		</section>      
     <!--End Main Sections -->
-		<footer class="footer clearfix" id="footer">
-			<div class="custom-container">
-				<nav class="footer-nav">
-					<div class="footer-column">
-						<span class="column-title">Main</span>
-						<ul>
-							<li><a href="#">Link1</a></li>
-							<li><a href="#">Link2</a></li>
-							<li><a href="#">Link3</a></li>
-							<li><a href="#">Link4</a></li>
-						</ul>
-					</div>
-
-					<div class="footer-column">
-						<span class="column-title">Main</span>
-						<ul>
-							<li><a href="#">Link1</a></li>
-							<li><a href="#">Link2</a></li>
-							<li><a href="#">Link3</a></li>
-							<li><a href="#">Link4</a></li>
-						</ul>
-					</div>
-
-					<div class="footer-column">
-						<span class="column-title">Main</span>
-						<ul>
-							<li><a href="#">Link1</a></li>
-							<li><a href="#">Link2</a></li>
-							<li><a href="#">Link3</a></li>
-							<li><a href="#">Link4</a></li>
-						</ul>
-					</div>
-
-				</nav>
+		<footer class="flex-container center-children" id="footer">
+			<!--Section 1 -->
+			<div class="flex-container stick-left">
+				<div style="margin-left: 20px;">2017 Copyright Houang Training LLC.</div>
 			</div>
-		</footer>	
+			<!--Section 2 -->
+			<div class="flex-container stick-right">
+				<div>Created by David over at SABR3 </div>
+				<img id="sabr3" class="responsive-img" src="./assets/img/me/Sabre_Spyder.png" width="120px"/>
+			</div>
+		</footer>
 		<script src="./js/loadingGif.js"></script>
 		<script src="./js/index.js"></script>
 		<script src="./js/movingHeaders.js"></script>

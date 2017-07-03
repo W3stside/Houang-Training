@@ -4,7 +4,7 @@
 
 $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
   var headerArr = document.getElementsByClassName("div5");
-
+  
   function expander (e) {
     e.preventDefault;
     
@@ -56,24 +56,24 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       $(pageName).find(".content-page-h1")
         .animate({
         opacity: '1',
-        fontSize: calculatedHeaderFontSize(winHeight,25)
+        fontSize: '3.2rem'
 		}, 600, 
 		//Animate in Header       
 		function animMpHeader () {
 			$(pageName).find(".mp-header")
-			.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,19)}, 300, 
+			.animate({opacity: '1'}, 300, 
 		    //Animate in Text       
 		    function animMpText () {
 				$(pageName).find('.mp-titles')
-					.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,28)}, 600);
-				$(pageName).find(".mp-text, .mp-paragraph, hr")
-					.animate({opacity: '1', fontSize: calculatedHeaderFontSize(winHeight,33)}, 600)
-					.find(".title-hashtag").animate({fontSize: calculatedHeaderFontSize(winHeight,25)}, 400,
+					.animate({opacity: '1'}, 600);
+				$(pageName).find(".mp-text, .mp-paragraph")
+					.animate({opacity: '1'}, 600,
 						function moveRyuIn () {
 							console.log(pageName);
 							if (pageName !== '.a-propos-div') return;
 							$(pageName).find("#ryu").addClass("activeRyu");
 						}); //end all chain
+				$(pageName).find('hr.no-opacity').addClass('yes-opacity');		
 			});//end .aninmate fn
 		});//end .animate fn
     });//End .animate fn 
@@ -97,8 +97,17 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       $(this).addClass('processing');
 
       $(".hero").removeClass("fadeOut");
-      //$(".fullscreen-bg__video").css({display: 'initial'});
-
+	  
+	  if ( $('.contact').hasClass('contactActive') ) {
+		
+		$('#loading-div').animate({opacity: 0}, 400, 
+			function removeAfterFadeOut(){
+				$('#loading-div').css({zIndex: 0});
+				$('.floating-div').animate({opacity: 0});
+				$('.contact').removeClass('contactActive');
+			});
+	  }
+		
       //Remove .processing class to allow user to click into other pages
       var removeClasses = $(".tarifs, .blog, .a-propos");
       removeClasses.removeClass('processing');
@@ -106,7 +115,10 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       //stop all animations on other pages when clicking on a page while another is loading. ex: hitting a propos and then clicking classes immediately	
       var allStop = $(".a-propos, .blog, .logo, .tarifs, .a-propos-div, .blog-div, .tarifs-div, #a-propos-h1, #blog-h1, #tarifs-h1, .mp-header, .mp-text, .mp-img");
       allStop.stop(true);	
-
+	  
+	  //make HR tags opaque
+	  $("hr").removeClass("yes-opacity");
+		
       var titleHide = $("#tarifs-h1, #blog-h1, #a-propos-h1, .mp-header, .mp-text");	
       titleHide.animate({opacity: '0'}, 300);
       titleHide.animate({left: "-100em"}, 100);
@@ -121,13 +133,46 @@ $(document).ready(function(){		//SEQUENTIAL PAGE INSERT//
       blogHide.animate ({opacity: '0', height: '0'},500);		
 
       var aproposHide = $(".a-propos-div");
-      aproposHide.animate ({width: '25px', left: '73.5%'/*left: '1000px'*/},700);
-      aproposHide.animate ({opacity: '0', height: '0'},500);		
-
-      var aProposDiv = $(".hero");	
-      //aProposDiv.animate({opacity: '1'}, 2000);
-      //aProposDiv.animate({height: '100vh'},800);
-      //aProposDiv.animate({width: '100%'}, 500);			
+      aproposHide.animate({width: '25px', left: '73.5%'/*left: '1000px'*/},700, 
+		function () {
+			aproposHide.animate({opacity: '0', height: '0'} , 500) 
+		});		
+      			
     });
-   });
+	
+	///////////////////////////////////////////
+	// Hitting CONTACT
+	///////////////////////////////////////////
+	$('.contact').click(function (e) {
+		e.preventDefault;
+		if( $(this).hasClass('contactActive') ) return;
+		$(this).addClass('contactActive');
+		$('#loading-div').animate({zIndex: 1111}, 
+			function fadeInDiv () {
+				
+				$('#loading-div').animate({backgroundColor: 'rgba(0,0,0,0.7)',opacity: 1}, 200, 
+				function fadeInForm() {
+					$('.floating-div').animate({opacity: 1}, 200);
+				});
+			});
+	})
+	
+	/////////////////////////////////////////
+	// CLicking loading div after it is focused
+	//////////////////////////////////////////
+	$('#close_floating_div').click(function (e) {
+		e.preventDefault;
+		//if( $(this).hasClass('contactActive') ) return;
+		$('.contact').removeClass('contactActive');
+		$('.floating-div').animate({opacity: 0}, 200, 
+			function fadeOutLoadingDiv () {
+				
+				$('#loading-div').animate({opacity: 0}, 200, 
+				function fadeInForm() {
+					$('#loading-div').css({zIndex: 0});
+					$(".hero").removeClass("fadeOut");
+				});
+			});
+	})	
+}); //end function all
 

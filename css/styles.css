@@ -1,6 +1,28 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 /*SCSS Vars*/
 
+.flex-container {
+	display: flex;
+	align-items: center; justify-content: center;
+}
+
+.stick-left {
+	margin-right: auto;
+}
+
+.center-children {
+	align-items: center; justify-content: center; 
+}
+
+.stick-right {
+	margin-left: auto;
+}
+
+.responsive-img: {
+	max-width: 100%;
+	height: auto;
+}
+
 .flex-column {
 	display: flex;
 	flex-flow: column nowrap;
@@ -17,6 +39,18 @@
 
 .align-left {
   align-items: left !important;
+}
+
+.no-opacity {
+	opacity: 0;
+	
+	transition: opacity 0.4s ease-out;
+}
+
+.yes-opacity {
+	opacity: 1 !important;
+	
+	transition: opacity 0.4s ease-out;
 }
 
 /*Box reset Code*/
@@ -187,7 +221,7 @@ html, body {
   text-shadow: 0.4px 0.4px 9px rgba(0, 0, 0, 0.35);
   min-width: 100%;
   min-height: 800px;
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
   margin: 0;
   padding: 0px;
@@ -249,9 +283,10 @@ header {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  height: 50px;
+  min-height: 50.5px;
+  max-height: 50.5px;
   width: 100%;
-  position: fixed;
+  position: relative;
   z-index: 999;
 }
 
@@ -303,7 +338,7 @@ header {
 }
 
 .navigation div:hover {
-  height: 100%;
+  height: 50.5px;
 }
 
 .navigation a:hover {
@@ -319,11 +354,12 @@ header {
  START OF HERO CODE*/
 #main-section {
   position: relative;
-  min-height: 800px;
+  min-height: 99.7vh;
+  display: flex; flex-flow: column nowrap; flex: 2 2 100%;
 }
 
 .hero-wrapper {
-  flex: 3;
+  /*flex: 3;*/
   flex-direction: column;
   /*height: 100%;*/
   min-height: 800px;
@@ -352,8 +388,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  height: 100%; width: 100%;
   z-index: -999;
 }
 
@@ -441,8 +476,7 @@ START OF CONTENT PAGES */
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 0;
-  top: 50px;
+  left: 0; top: 0;
   width: 100%;
   z-index: 0;
 }
@@ -564,16 +598,13 @@ code {
 }
 
 .slides {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: 0 51.2px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto; padding: 20px 0;
   opacity: 0;
+  
+  height: 100%; width: 86%;
   transition: all 0.8s ease-in-out;
 }
 
@@ -605,11 +636,6 @@ code {
   opacity: 1 !important;
 }
 
-.slides img {
-  left: 0;
-  opacity: 0.4;
-}
-
 .slides .text, .slide-bg-image, .slideshow-controls {
   position: absolute;
 }
@@ -624,10 +650,12 @@ code {
 }
 
 .slideshow-controls {
-  height: 100%;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  transition: all 0.5s linear;
 }
 
 .slideshow-controls > span {
@@ -648,6 +676,67 @@ code {
 
 #blog-header-control-left:hover, #btn-blue-text-control-left:hover, #blog-header-control-right:hover, #btn-blue-text-control-right:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+/*Photos Slideshow CSS */
+.slides-h1 {
+	font-size: 4rem;
+}
+.photo-grid {
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 21px;
+	
+	height: 100%; max-height: 100%;
+	width: 100%;
+	
+	overflow: hidden;
+}
+
+.grid-image-container {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	flex: 1;
+	
+    position: relative;
+    z-index: 10;
+		
+	transition: all 0.5s ease-out;	
+}
+
+.grid-photo {
+	max-width: 100%; max-height: 700px;
+    transition: all 0.42s linear;
+}
+
+.img-p {
+	position: absolute;
+    
+    color: white; font-size: 1.2rem;
+    margin-top: auto;
+	opacity: 0;
+	
+	text-align: center;
+	width: 55%;
+    
+	transition: all 0.42s linear;
+}
+
+.grid-image-container:hover {
+	flex: 8;
+}
+
+.grid-image-container:hover .grid-photo {
+    filter: brightness(70%);
+}
+
+.grid-image-container:hover .img-p {
+    opacity: 1;
+	font-size: 2rem;
+	width: 100%;
 }
 
 /*End Slideshow CSS*/
@@ -698,7 +787,7 @@ code {
 }
 
 .mp-header {
-  font: 900 5.2rem/0.8 "Josefin Sans", Arial;
+  font: 900 3.6rem/0.8 "Josefin Sans", Arial;
   color: black;
   padding: 15px 0;
 }
@@ -716,7 +805,7 @@ code {
 }
 
 .mp-text-wrapper {
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   align-items: flex-start;
   width: 100%;
 }
@@ -738,12 +827,6 @@ code {
 .mp-text {
   /*to set the images outside of the screen when jQuering them in*/
   opacity: 0;
-}
-
-/*JJB SPECIFICALLY*/
-#coaching-titles {
-  /*#coaching*/
-  font-size: 3rem;
 }
 
 #ryu {
@@ -786,17 +869,20 @@ code {
 
 #tarif-mp-text-wrapper {
   display: flex;
-  width: 76%;
+  font-size: 1.6rem;
+  width: 100%;
   justify-content: flex-start;
 }
-
+.tarif-mp-titles {
+	font-size: 4.9rem;
+}
 .tarifs-mp-text {
 	display: flex !important;
 	flex: none !important;
 }
 
 .tarifs-content-photos {
-  opacity: 1;
+  opacity: 1; 
   overflow: hidden;
   width: 20rem;
   margin: 0 25px 0 15px;
@@ -833,17 +919,17 @@ code {
 }
 
 /* START OF FOOTER CODE*/
-.footer {
-  background-color: black;
+footer {
+  background-color: rgba(0,0,0,0.56);
   color: white;
   margin-top: auto;
-  max-height: 0px;
-  overflow: hidden;
   position: relative;
   width: 100%;
   z-index: 7;
 }
-
+#sabr3 {
+	margin: 20px;
+}
 .footer .footer-nav {
   display: flex;
   padding: 0 0 8% 10%;
@@ -871,20 +957,63 @@ code {
   color: #fff;
 }
 
+/*FORM CSS*/
+
+.floating-div {
+  background-color: ghostwhite;
+  box-shadow: 0px 0px 10px 2px rgba(125,125,125,0.15);
+  display: inline-flex; justify-content: center; align-items: center;
+  font-size: 3rem;
+  opacity: 0;
+  padding: 60px;
+  position: relative;
+}
+#close_floating_div {
+	cursor: pointer;
+	position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 20px;
+}
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input, textarea {
+    border: 2px solid #555;
+    //border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    outline: none;
+    padding: 8px;
+}
+.input__buttons {
+  height: auto;
+  width: auto;
+}
+input__buttons:active {
+  box-shadow: inset 0px 0px 6px 1px rgba(50,50,50,0.2);
+}
+#message__box {
+  width: 400px;
+  padding-bottom: 200px;
+  transition: all 0.5s ease-out;
+}
+
+label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 -2px 8px;
+}
+/*END FORM CSS*/
+
 @media all and (min-width: 3200px) {
-  header {
-    height: 100px !important;
-  }
-
-  .navigation a {
-    font-size: 26px;
-    padding: 36px;
-  }
-
-  .moving-pages {
-    top: 100px !important;
-  }
-
+  
   footer {
     max-height: 300px !important;
   }
@@ -913,13 +1042,13 @@ code {
   }
 }
 
-@media all and (min-width: 601px) and (max-width: 700px) {
+/*@media all and (min-width: 601px) and (max-width: 700px) {
 	html,body {
 		font-size: 9px !important;
 	}
-}
+}*/
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 720px) {
   html {
     font-size: 17px !important;
   }
@@ -952,7 +1081,7 @@ code {
   .navigation div:hover {
     background-color: white;
     box-shadow: inset 0px 0px 7px black;
-    height: auto;
+    height: 50.5px;
   }
 
   .navigation a {
@@ -1081,5 +1210,11 @@ code {
   .tarifs-content-photos {
 	margin: 0 !important;
 	width: 8rem;
+  }
+  #slideshow {
+	  height: 750px !important;
+  }
+  .slides-h1 {
+	  font-size: 3rem !important;
   }
 }

@@ -1,4 +1,5 @@
   $(document).ready(function(){
+	
     $(window).resize( function () {
       //get Internal Window Height
       var winHeight = $("html").height() - $("header").height() - $("footer").height();
