@@ -8,7 +8,10 @@ $(window).load( function () {
 			function removeAfterFadeOut(){
 				$('#loading-div').css({zIndex: 0});
 				$('#loading-gif').css({zIndex: 0, display: 'none'});
-				$('.floating-div').css({opacity: 1});
+				$('.floating-div').animate({opacity: 1}, 200, 
+					function setDisplay() {
+						$(this).css({display: 'inline-flex'});
+					});
 			});
 	}, 200);
 });
