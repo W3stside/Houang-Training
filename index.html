@@ -60,9 +60,34 @@
 						<img class="cover-photo" id='cover-photo-1' src="./assets/img/tiltshift_home.jpg"/>
 					</div>
 					<div id="hero-container-circle" class="custom-container">
-						<h1 class="hero-title hero-text">HOUANG TRAINING</h1>
-						<p class="hero-blurb hero-text">Jiu Jitsu Bresilien - Champion de la France 2017 || Entraineur de Sport</p>
-						<a href="#" class="btn btn-blue"><span id="btn-blue-text">1er Cours Offert! Voir</span></a>
+						<div class="hero-container-child-divs" id="hero-container-open-child">
+							<h1 class="hero-title hero-text">HOUANG TRAINING</h1>
+							<p class="hero-blurb hero-text">Jiu Jitsu Bresilien - Champion de la France 2017 || Entraineur de Sport</p>
+							<a href="#" class="btn btn-blue"><span id="btn-blue-text">1er Cours Offert! Voir</span></a>
+						</div>
+						<div class="hero-container-child-divs" id="hero-container-hidden-child">
+							<div class="hero-container-child-divs" style="color: white;">
+								<h2 style="font-size: 3.5rem;">Venez voir + participer dans un cour gratuit!</h2>
+								<ul class="hero-container-child-divs" style="font-size: 2.5rem;">
+									<li style="margin-top: 1rem;">
+										<h3 class="hero-h3">Meet and Greet</h3>
+										<img class="responsive-img" src="./assets/img/bjj/mattLine.jpg">
+									</li>
+									<li>
+										<h3 class="hero-h3">Choose a Lesson</h3>
+										<img class="responsive-img" src="./assets/img/bjj/in_training.jpg">
+									</li>
+									<li style="margin-top: 1rem;">
+										<h3 class="hero-h3">Learn your thresholds and make a custom plan</h3>
+										<img class="responsive-img" src="./assets/img/bjj/takedown2.jpg">
+									</li>
+									<li>
+										<h3 class="hero-h3">Sign up!</h3>
+										<img class="responsive-img" src="./assets/img/bjj/holding_award.jpg">
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- A PROPOS HTML -->
@@ -207,9 +232,9 @@
 									<div class="flex-column">
 										<div class="mp-titles tarif-mp-titles" id="jjb-titles"><span class="title-hashtag">#</span>jiu jitsu brésilien</div>
 										<ul class="mp-paragraph" id="jjb-paragraph">
-											<li>Partie d'un groupe - 35/l'heure</li>
-											<li>Cour privee - 50/l'heure</li>
-											<li>Par mois - 30% reduction</li>
+											<li>Partie d'un groupe <-- 35/l'heure</li>
+											<li>Cours privé <----------- 50/l'heure</li>
+											<li>Par mois <-------------- 30% reduction</li>
 										</ul>
 									</div>
 								</div>
@@ -220,9 +245,9 @@
 									<div class="flex-column">
 										<div class="mp-titles tarif-mp-titles" id="coaching-titles"><span class="title-hashtag">#</span>personal coaching</div>
 										<ul class="mp-paragraph" id="coaching-paragraph">
-											<li>Partie d'un groupe - 25/l'heure</li>
-											<li>Cour privee - 40/l'heure</li>
-											<li>Par mois - 30% reduction</li>
+											<li>Partie d'un groupe <-- 25/l'heure</li>
+											<li>Cours privé <----------- 40/l'heure</li>
+											<li>Par mois <-------------- 30% reduction</li>
 										</ul>
 									</div>
 								</div>
@@ -233,8 +258,8 @@
 									<div class="flex-column">
 										<div class="mp-titles tarif-mp-titles" id="autres-titles"><span class="title-hashtag">#</span>autres</div>
 										<ul class="mp-paragraph" id="autres-paragraph">
-											<li>Nutrition planning</li>
-											<li>Custom programs</li>
+											<li>Programme de nutrition</li>
+											<li>Programme personnalisé</li>
 											<li>Cardio</li>
 										</ul>
 									</div>
@@ -246,6 +271,9 @@
 					<!-- BLOG HTML -->
 					<div class="blog-div inline-block" id="blog">
 						<div id="blog-custom-container" class="custom-container main-content-containers">
+							<h1 id="blog-page-h1" class="content-page-h1">
+								#PHOTOS
+							</h1>
 							<div id="slideshow">
 								<div class="slideshow-container">
 									<div class="slides blog-header-slides" id="slide-1">
@@ -459,6 +487,7 @@
 		<script src="./js/loadingGif.js"></script>
 		<script src="./js/index.js"></script>
 		<script src="./js/movingHeaders.js"></script>
+		<script src="./js/heroButtonAnimation.js"></script>
 		<script src="./js/formValidator.js"></script>
 		<script src="./js/slideshow.js"></script>
 		<script src="./js/scrollEffect.js"></script>
