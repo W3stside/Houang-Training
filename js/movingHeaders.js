@@ -8,8 +8,6 @@ $(document).ready(function(){//SEQUENTIAL PAGE INSERT//
 	function expander (e) {
 		e.preventDefault;
 
-		//get Internal Window Height
-		var winHeight = $("html").height() - $("header").height() - $("footer").height();
 		var headerLocation = null;
 		var calculatedHeaderFontSize = function (thingToDivideFrom , divisor) {return (thingToDivideFrom / (divisor * 10)) + 'rem';}
 		//className = "a-propos-div" or "tarif-div" or "blog-div" respectively
@@ -33,11 +31,23 @@ $(document).ready(function(){//SEQUENTIAL PAGE INSERT//
 		$(pageName).addClass("currentAnimatingPage");
 		//remove the processing class from all sibling headers
 		$(this).siblings().removeClass("processing");
+		
+		//Close the front hero panel
+		if ($('.btn-blue').hasClass('open')) {
+			$('.btn-blue').removeClass('open');
+			$('#hero-container-hidden-child').animate({flexBasis: '0px'} , 400);
+			//change the text back to the original text
+			$('#btn-blue-text').text('1er Cours Offert! Voir');
+		} 		
+		
 		$(pageName).siblings().removeClass("currentAnimatingPage");
 		$("#logo").removeClass("processing");
 		$(pageName).siblings().css({zIndex: '6'}).animate({height: '0', opacity: 0}, 600);
 
 		//animation below
+		
+		//get Internal Window Height
+		var winHeight = $("html").height() - $("header").height() - $("footer").height();	
 		$(".hero").addClass("fadeOut");
 		$(this).css({backgroundColor: bgColor});
 		$(pageName)
@@ -83,6 +93,7 @@ $(document).ready(function(){//SEQUENTIAL PAGE INSERT//
 									});//end .aninmate fn
 						});//end .animate fn
 				});//End .animate fn 
+		
 	};//End expander fn
 
 	//Loop through and apply above
